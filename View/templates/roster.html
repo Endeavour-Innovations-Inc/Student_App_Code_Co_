@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1></h1>
+<table class="coursetable">
+    <thread>
+    <tr valign "bottom">
+        <td width="20%"> Name </td>
+        <td width="30%"> Email</td>
+        <td width="30%"> Address</td>
+        <td width="20%"> Student Last Seen</td>
+    </tr>
+    </thread>
+</table>
+
+{% for enrollment in current_class.roster %}
+        {% set student = enrollment.studentenrolled %}
+        {% include '_student.html' %}
+{% endfor %}
+<br>
+<a href="{{url_for('routes.index')" class = "button">Return to main page</a>
+
+{% endblock %}

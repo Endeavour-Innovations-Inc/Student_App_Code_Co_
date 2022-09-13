@@ -1,0 +1,21 @@
+<table class="table table-hover">
+    <tr valign="center">
+            <td width = "60%"> {{class.major}} {{ class.coursenum}} - {{class.title}} </td>
+            <td width = "20%">
+               {% if current_user.is_enrolled(class)==False %}
+               <form action="{{url_for('routes.enroll',classid=class.id)}}" method="post">
+                   <input type="sumbit" value="Enroll" class="button">
+               </form>
+               {% else %}
+               <form action="{{url_for('routes.enroll',classid=class.id)}}" method="post">
+                   <input type="sumbit" value="Unenroll" class="button">
+               </form>
+               Enrolled on: {{ moment(current_user.getEnrolmentDate(class)) }}
+              {% endif %}
+            </td>
+            <td width = "20%">
+               <a href="{{url_for('routes.roster',classid=class.id)}}"> {{class.major}} {{ class.coursenum}} Roster </a>
+            </td>
+    </tr>
+
+</table>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+    <h1> Create a new class</h1>
+
+    
+
+    {% if form %}
+
+        <div class="row">
+            <div class="col-md-4">
+                {{ wtf.quick_form(form, action = url_for('createclass')) }}
+            </div>
+        </div>
+    
+    {% endif %}
+
+{% endblock %}
